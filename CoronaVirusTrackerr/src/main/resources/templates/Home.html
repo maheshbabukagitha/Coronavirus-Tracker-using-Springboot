@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="p-3 mb-2 bg-light text-dark">
+<div class="container" >
+<div class="p-3 mb-2 bg-secondary text-white">
+<h1>Coronavirus Tracker </h1>
+<div class="p-3 mb-2 bg-light text-dark">
+<div class="jumbotron">
+    <b><h1 class="display-4" th:text="${totalReportedCases}"></h1></b>
+    <p class="lead">Total cases reported as of today</p>
+    <hr class="my-4">
+    <p>
+        <b><span>More cases reported in </span></b>
+        <span  class="text-danger" th:text="${countrywithmorecases}"></span>
+        <span> </span>
+        <b><span  class="text-danger" th:text="${morecases}"></span></b>
+    </p>
+</div>
+    <table class="table table-striped">
+    	
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total cases reported</th>
+            <th>Cases Reported Today</th>
+        </tr>
+        <tr th:each="detailss : ${details}">
+            <td th:text="${detailss.state}"></td>
+            <td th:text="${detailss.country}"></td>
+            <td th:text="${detailss.latestTotalCases}">0</td>
+            <td th:text="${detailss.Today}">0</td>
+        </tr>
+    </table>
+    </div>
+</div>
+</div>
+</div>
+</body>
+
+</html>
